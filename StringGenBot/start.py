@@ -10,7 +10,7 @@ def filter(cmd: str):
 @Client.on_message(filter("start"))
 async def start(bot: Client, msg: Message):
     me2 = (await bot.get_me()).mention
-    await msg.reply_photo(
+    await bot.send_photo(
         chat_id=msg.chat.id,
         photo="https://telegra.ph/file/5c586e00f34665267ab5b.jpg",  # Replace with the URL of your image
         caption=f"""<b>𝐇𝐞𝐲 {msg.from_user.mention}🍷,
@@ -31,6 +31,4 @@ Made With By : [VJ Botz](https://t.me/VJ_Botz) !</b>""",
                     InlineKeyboardButton("🥀 Update Channel 🥀", url="https://t.me/VJ_Botz")
                 ]
             ]
-        ),
-        disable_web_page_preview=True,
-    )
+        )
