@@ -23,11 +23,11 @@ Made With By : [VJ Botz](https://t.me/VJ_Botz) !</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="⚡𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄 𝐒𝐓𝐑𝐈𝐍𝐆⚡", callback_data="generate")
+                    InlineKeyboardButton(text="⚡Generate String⚡", callback_data="generate")
                 ],
                 [
-                    InlineKeyboardButton("❣️ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 ❣️", url="https://t.me/VJ_Bot_Disscussion"),
-                    InlineKeyboardButton("🥀 𝐎𝐟𝐟𝐢𝐜𝐞 🥀", url="https://t.me/VJ_Botz")
+                    InlineKeyboardButton("❣️ Support Group ❣️", url="https://t.me/VJ_Bot_Disscussion"),
+                    InlineKeyboardButton("🥀 Update Channel 🥀", url="https://t.me/VJ_Botz")
                 ]
             ]
         ),
