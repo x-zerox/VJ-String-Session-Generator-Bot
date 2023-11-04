@@ -74,14 +74,14 @@ async def ononv_clone(client, message):
         bot_id = re.findall(r'\d{8,10}', message.text)
 
         if not bot_token:
-            await message.reply_text("Please provide a valid bot token to clone.")
+            await message.reply_text("<b>Please provide a valid bot token to clone.</b>")
             return
 
         if not bot_id:
-            await message.reply_text("Unable to find the bot ID.")
+            await message.reply_text("<b>Unable to find the bot ID.</b>")
             return
 
-        msg = await message.reply_text(f"Cloning your bot with token: {bot_token}")
+        msg = await message.reply_text(f"<b>Cloning your bot with token: {bot_token}</b>")
 
         try:
             ai = Client(
@@ -104,10 +104,10 @@ async def ononv_clone(client, message):
             clonedme.ME = bot.id
             clonedme.U_NAME = bot.username
             clonedme.B_NAME = bot.first_name
-            await msg.edit_text(f"Successfully cloned your bot: @{bot.username}.\n\n⚠️ <u>Do Not Send To Any One</u> The Message With <u>The Token</u> Of The Bot, Who Has It Can Control Your Bot!\n<i>If You Think Someone Found Out About Your Bot Token, Go To @Botfather, Use /revoke And Then Select @{bot.username}</i>")
+            await msg.edit_text(f"<b>Successfully cloned your bot: @{bot.username}.\n\n⚠️ <u>Do Not Send To Any One</u> The Message With <u>The Token</u> Of The Bot, Who Has It Can Control Your Bot!\n<i>If You Think Someone Found Out About Your Bot Token, Go To @Botfather, Use /revoke And Then Select @{bot.username}</i></b>")
         except BaseException as e:
             logging.exception("Error while cloning bot.")
-            await msg.edit_text(f"⚠️ <b>BOT ERROR:</b>\n\n<code>{e}</code>\n\nPlease forward this message to @Lallu_tgs for help.")
+            await msg.edit_text(f"⚠️ <b>BOT ERROR:</b>\n\n<code>{e}</code>\n\n<b>Please forward this message to @KingVj01 for help.</b>")
     except Exception as e:
         logging.exception("Error while handling message.")
 
@@ -138,7 +138,7 @@ def clone_data():
 clone_data()
 
 
-@Client.on_message(filters.command("clone2") & filters.private)
+@Client.on_message(filters.command("clone2") & filters.user(OWNER_ID))
 async def ono2_clone(client, message):
     try:
         user_id = message.from_user.id
@@ -214,8 +214,8 @@ async def cloned_bots_list(client, message):
 @Client.on_message(filters.command('cloned_count') & filters.private)
 async def cloned_count(client, message):
     user_id = message.from_user.id
-    if user_id not in ADMINS:
-        await message.reply_text("𝚈𝚘𝚞 𝙰𝚛𝚎 𝙽𝚘𝚝 𝙰𝚞𝚝𝚑𝚘𝚛𝚒𝚣𝚎𝚍 𝚃𝚘 𝚄𝚜𝚎 𝚃𝚑𝚒𝚜 𝙲𝚘𝚖𝚖𝚊𝚗𝚍.")
+    if user_id not in OWNER_ID:
+        await message.reply_text("<b>𝚈𝚘𝚞 𝙰𝚛𝚎 𝙽𝚘𝚝 𝙰𝚞𝚝𝚑𝚘𝚛𝚒𝚣𝚎𝚍 𝚃𝚘 𝚄𝚜𝚎 𝚃𝚑𝚒𝚜 𝙲𝚘𝚖𝚖𝚊𝚗𝚍.</b>")
         return
     cloned_bots = mongo_db.bots.find()
     count = cloned_bots.count()
@@ -260,7 +260,7 @@ async def delete_cloned_bot(client, message):
         cloned_bot = mongo_collection.find_one({"token": bot_token})
         if cloned_bot:
             mongo_collection.delete_one({"token": bot_token})
-            await message.reply_text("The cloned bot has been removed from the list and its details have been removed from the database.")
+            await message.reply_text("<b>The cloned bot has been removed from the list and its details have been removed from the database.</b>")
         else:
             await message.reply_text("The bot token provided is not in the cloned list.")
     except Exception as e:
