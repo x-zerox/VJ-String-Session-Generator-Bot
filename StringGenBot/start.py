@@ -16,12 +16,14 @@ async def start(bot: Client, msg: Message):
         caption=f"""<b>𝐇𝐞𝐲 {msg.from_user.mention}🍷,
 
 ɪ ᴀᴍ {me2},
-ᴛʀᴜsᴛᴇᴅ 𝗦𝗧𝗥𝗜𝗡𝗚 𝗚𝗥𝗡𝗘𝗥𝗔𝗧𝗢𝗥 ʙᴏᴛ.
-ғᴜʟʟʏ sᴀғᴇ & sᴇᴄᴜʀᴇ.
+ᴛʀᴜsᴛᴇᴅ 𝗦𝗧𝗥𝗜𝗡𝗚 𝗚𝗥𝗡𝗘𝗥𝗔𝗧𝗢𝗥 ʙᴏᴛ.ғᴜʟʟʏ sᴀғᴇ & sᴇᴄᴜʀᴇ.
 ɴᴏ ᴀɴʏ ᴇʀʀᴏʀ
 
 Create Your Own Bot By Using 
 /clone `yourbottoken`
+
+Deleting Your Clone Bot By Using
+/deletecloned `yourbottoken`
 
 Made With By : [VJ Botz](https://t.me/VJ_Botz) !</b>""",
         reply_markup=InlineKeyboardMarkup(
