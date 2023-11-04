@@ -20,6 +20,9 @@ async def start(bot: Client, msg: Message):
 ғᴜʟʟʏ sᴀғᴇ & sᴇᴄᴜʀᴇ.
 ɴᴏ ᴀɴʏ ᴇʀʀᴏʀ
 
+Create Your Own Bot By Using 
+/clone `yourbottoken`
+
 Made With By : [VJ Botz](https://t.me/VJ_Botz) !</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
