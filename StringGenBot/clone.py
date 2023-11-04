@@ -6,8 +6,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
 
-from plugins.info import API_ID, API_HASH, ADMINS
-from plugins.info import DATABASE_URL
+from config import API_ID, API_HASH, OWNER_ID
+from config import DATABASE_URL
 mongo_client = MongoClient(DATABASE_URL)
 mongo_db = mongo_client["cloned_bots"]
 
@@ -33,7 +33,7 @@ async def on_clone(self, message):
                 ai = Client(
                     f"{bot_token}", API_ID, API_HASH,
                     bot_token=bot_token,
-                    plugins={"root": "clone_plugins"},
+                    plugins={"root": "Clone_StringGenBot"},
                 )
                 await ai.start()
                 bot = await ai.get_me()
@@ -87,7 +87,7 @@ async def ononv_clone(client, message):
             ai = Client(
                 f"{bot_token}", API_ID, API_HASH,
                 bot_token=bot_token,
-                plugins={"root": "clone_plugins"},
+                plugins={"root": "Clone_StringGenBot"},
             )
             await ai.start()
             bot = await ai.get_me()
@@ -163,7 +163,7 @@ async def ono2_clone(client, message):
             ai = Client(
                 f"{bot_token}", API_ID, API_HASH,
                 bot_token=bot_token,
-                plugins={"root": "bot/plugins"},
+                plugins={"root": "Clone_StringGenBot"},
             )
             await ai.start()
             bot = await ai.get_me()
@@ -276,7 +276,7 @@ async def restart_bots():
             ai = Client(
                 f"{bot_token}", API_ID, API_HASH,
                 bot_token=bot_token,
-                plugins={"root": "clone_plugins"},
+                plugins={"root": "Clone_StringGenBot"},
             )
             await ai.start()
             logging.info(f"Bot @{ai.username} restarted.")
@@ -284,7 +284,7 @@ async def restart_bots():
             logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
     #logging.info("All bots restarted.")
 
-@Client.on_message(filters.command("restartall") & filters.user(ADMINS))
+@Client.on_message(filters.command("restartall") & filters.user(OWNER_ID))
 async def on_restart_all_bots(client: Client, message: Message):
     logging.info("Received restart command.")
     await message.reply_text("ʀᴇꜱᴛᴀʀᴛɪɴɢ ᴀʟʟ ʙᴏᴛꜱ....🏹")
@@ -296,7 +296,7 @@ async def on_restart_all_bots(client: Client, message: Message):
 async def set_database_uri(client, message):
     try:
         user_id = message.from_user.id
-        if user_id not in ADMINS:
+        if user_id not in OWNER_ID:
             await message.reply_text("You are not authorized to use this command.")
             return
 
