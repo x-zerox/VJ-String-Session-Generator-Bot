@@ -18,17 +18,14 @@ async def start(bot: Client, msg: Message):
 ɪ ᴀᴍ {me2},
 ᴛʀᴜsᴛᴇᴅ 𝗦𝗧𝗥𝗜𝗡𝗚 𝗚𝗥𝗡𝗘𝗥𝗔𝗧𝗢𝗥 ʙᴏᴛ.
 ғᴜʟʟʏ sᴀғᴇ & sᴇᴄᴜʀᴇ.
-ɴᴏ ᴀɴʏ ᴇʀʀᴏʀ
-
-Made With By : [VJ Botz](https://t.me/VJ_Botz) !</b>""",
+ɴᴏ ᴀɴʏ ᴇʀʀᴏʀ</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(text="⚡Generate String⚡", callback_data="generate")
                 ],
                 [
-                    InlineKeyboardButton("❣️ Support Group ❣️", url="https://t.me/VJ_Bot_Disscussion"),
-                    InlineKeyboardButton("🥀 Update Channel 🥀", url="https://t.me/VJ_Botz")
+                    InlineKeyboardButton("❣️ Create Your Own Bot ❣️", url="https://t.me/VJStringSessionBot?start=True")
                 ]
             ]
         )
