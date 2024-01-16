@@ -19,12 +19,6 @@ async def start(bot: Client, msg: Message):
 ᴛʀᴜsᴛᴇᴅ 𝗦𝗧𝗥𝗜𝗡𝗚 𝗚𝗥𝗡𝗘𝗥𝗔𝗧𝗢𝗥 ʙᴏᴛ.ғᴜʟʟʏ sᴀғᴇ & sᴇᴄᴜʀᴇ.
 ɴᴏ ᴀɴʏ ᴇʀʀᴏʀ
 
-Create Your Own Bot By Using 
-/clone `yourbottoken`
-
-Deleting Your Clone Bot By Using
-/deletecloned `yourbottoken`
-
 Made With By : [VJ Botz](https://t.me/VJ_Botz) !</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
