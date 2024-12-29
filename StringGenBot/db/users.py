@@ -1,5 +1,8 @@
-from StringGenBot.db import db
+from config import MONGO_DB_URI
+from motor.motor_asyncio import AsyncIOMotorClient
 
+mongo = AsyncIOMotorClient(MONGO_DB_URI)
+db = mongo.StringGen
 usersdb = db.users
 
 
