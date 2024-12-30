@@ -1,7 +1,7 @@
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from database.db import db
+from StringGenBot.db import db
 from pyrogram import Client, filters
-from config import ADMINS
+from config import OWNER_ID
 import asyncio
 import datetime
 import time
@@ -26,7 +26,7 @@ async def broadcast_messages(user_id, message):
         return False, "Error"
 
 
-@Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
+@Client.on_message(filters.command("broadcast") & filters.user(OWNER_ID) & filters.reply)
 async def verupikkals(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
