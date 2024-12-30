@@ -1,7 +1,7 @@
 import traceback
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
-from StringGenBot.generate import generate_session, ask_ques, buttons_ques
+from TechVJ.generate import generate_session, ask_ques, buttons_ques
 
 @Client.on_callback_query(filters.regex(pattern=r"^(generate|pyrogram|pyrogram_bot|telethon_bot|telethon)$"))
 async def _callbacks(bot: Client, callback_query: CallbackQuery):
