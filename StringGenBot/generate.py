@@ -49,7 +49,15 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
             invite_link = await bot.create_chat_invite_link(int(F_SUB))
         except:
             await msg.reply("**Make Sure I Am Admin In Your Channel**")
-            return 
+            return
+        key = InlineKeyboardMarkup(
+            [[
+                InlineKeyboardButton("🍿 Join Update Channel 🍿", url=invite_link.invite_link),
+                InlineKeyboardButton("🍀 Check Again 🍀", callback_data="chk")
+            ]]
+        ) 
+        await msg.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join My Update Channel To Use Me.If You Joined The Channel Then Click On Check Again Button To Confirm.**", reply_markup=key)
+        return 
     if telethon:
         ty = "𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡"
     else:
