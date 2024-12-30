@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from asyncio.exceptions import TimeoutError
 from telethon.sessions import StringSession
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from StringGenBot.db import db
+from TechVJ.db import db
 from pyrogram.errors import (
     ApiIdInvalid,
     PhoneNumberInvalid,
