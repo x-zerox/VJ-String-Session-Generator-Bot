@@ -4,6 +4,7 @@ from pyrogram import Client, filters
 from asyncio.exceptions import TimeoutError
 from telethon.sessions import StringSession
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from StringGenBot.db import db
 from pyrogram.errors import (
     ApiIdInvalid,
     PhoneNumberInvalid,
@@ -39,6 +40,16 @@ async def main(_, msg):
     await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
 
 async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bool = False):
+    if not await db.is_user_exist(msg.from_user.id):
+        await db.add_user(msg.from_user.id, msg.from_user.first_name)
+    try:
+        await bot.get_chat_member(config.F_SUB, msg.from_user.id)
+    except:
+        try:
+            invite_link = await bot.create_chat_invite_link(int(F_SUB))
+        except:
+            await msg.reply("**Make Sure I Am Admin In Your Channel**")
+            return 
     if telethon:
         ty = "𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡"
     else:
