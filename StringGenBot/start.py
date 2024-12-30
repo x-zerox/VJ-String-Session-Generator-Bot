@@ -8,12 +8,12 @@ async def start(bot: Client, msg: Message):
     if not await db.is_user_exist(msg.from_user.id):
         await db.add_user(msg.from_user.id, msg.from_user.first_name)
     try:
-        await bot.get_chat_member(F_SUB, m.from_user.id)
+        await bot.get_chat_member(F_SUB, msg.from_user.id)
     except:
         try:
             invite_link = await bot.create_chat_invite_link(int(F_SUB))
         except:
-            await m.reply("**Make Sure I Am Admin In Your Channel**")
+            await msg.reply("**Make Sure I Am Admin In Your Channel**")
             return 
         key = InlineKeyboardMarkup(
             [[
@@ -21,7 +21,7 @@ async def start(bot: Client, msg: Message):
                 InlineKeyboardButton("🍀 Check Again 🍀", callback_data="chk")
             ]]
         ) 
-        await m.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join My Update Channel To Use Me.If You Joined The Channel Then Click On Check Again Button To Confirm.**", reply_markup=key)
+        await msg.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join My Update Channel To Use Me.If You Joined The Channel Then Click On Check Again Button To Confirm.**", reply_markup=key)
         return 
     me = (await bot.get_me()).mention
     await bot.send_message(
