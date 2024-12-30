@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from config import OWNER_ID, F_SUB
-from StringGenBot.db import db
+from TechVJ.db import db
 
 @Client.on_message(filters.private & filters.incoming & filters.command("start"))
 async def start(bot: Client, msg: Message):
