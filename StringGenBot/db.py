@@ -1,5 +1,5 @@
 import motor.motor_asyncio
-from config import DB_NAME, DB_URI
+from config import MONGO_DB_URI
 
 class Database:
     
@@ -11,8 +11,7 @@ class Database:
     def new_user(self, id, name):
         return dict(
             id = id,
-            name = name,
-            session = None,
+            name = name
         )
     
     async def add_user(self, id, name):
@@ -33,11 +32,4 @@ class Database:
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
 
-    async def set_session(self, id, session):
-        await self.col.update_one({'id': int(id)}, {'$set': {'session': session}})
-
-    async def get_session(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user['session']
-
-db = Database(DB_URI, DB_NAME)
+db = Database(MONGO_DB_URI, "techvj")
