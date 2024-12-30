@@ -1,9 +1,12 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from config import OWNER_ID, F_SUB
+from StringGenBot.db import db
 
 @Client.on_message(filters.private & filters.incoming & filters.command("start"))
 async def start(bot: Client, msg: Message):
+    if not await db.is_user_exist(msg.from_user.id):
+        await db.add_user(msg.from_user.id, msg.from_user.first_name)
     try:
         await bot.get_chat_member(F_SUB, m.from_user.id)
     except:
