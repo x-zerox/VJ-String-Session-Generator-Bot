@@ -5,3 +5,4 @@ pyrofork==2.3.45
 python-dotenv
 telethon
 TgCrypto
+flask
