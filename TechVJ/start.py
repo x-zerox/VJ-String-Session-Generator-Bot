@@ -7,20 +7,21 @@ from TechVJ.db import db
 async def start(bot: Client, msg: Message):
     if not await db.is_user_exist(msg.from_user.id):
         await db.add_user(msg.from_user.id, msg.from_user.first_name)
-    try:
-        await bot.get_chat_member(F_SUB, msg.from_user.id)
-    except:
+    if F_SUB:
         try:
-            invite_link = await bot.create_chat_invite_link(int(F_SUB))
+            await bot.get_chat_member(F_SUB, msg.from_user.id)
         except:
-            await msg.reply("**Make Sure I Am Admin In Your Channel**")
-            return 
-        key = InlineKeyboardMarkup(
-            [[
-                InlineKeyboardButton("🍿 Join Update Channel 🍿", url=invite_link.invite_link),
-                InlineKeyboardButton("🍀 Check Again 🍀", callback_data="chk")
-            ]]
-        ) 
+            try:
+                invite_link = await bot.create_chat_invite_link(int(F_SUB))
+            except:
+                await msg.reply("**Make Sure I Am Admin In Your Channel**")
+                return 
+            key = InlineKeyboardMarkup(
+                [[
+                    InlineKeyboardButton("🍿 Join Update Channel 🍿", url=invite_link.invite_link),
+                    InlineKeyboardButton("🍀 Check Again 🍀", callback_data="chk")
+                ]]
+            ) 
         await msg.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join My Update Channel To Use Me.If You Joined The Channel Then Click On Check Again Button To Confirm.**", reply_markup=key)
         return 
     me = (await bot.get_me()).mention
