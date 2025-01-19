@@ -20,7 +20,8 @@
 - <b>`API_ID` - Get your Api Id from [my.telegram.org](https://my.telegram.org/apps)
 - `API_HASH` - Get your Api Hash from [my.telegram.org](https://my.telegram.org/apps)
 - `BOT_TOKEN` - Get your Bot Token from [@BotFather](https://t.me/BotFather)
-- `F_SUB` - Your Force Subscribe Channel Id & Make Bot Admin Here In This Channel 
+- `OWNER_ID` - Owner id of owner for broadcasting
+- `F_SUB` - Optional, Your Force Subscribe Channel Id & Make Bot Admin Here In This Channel 
 - `MONGO_DB_URI` - Get mongodb database uri from [MongoDB](https://mongodb.com)</b>
 
 ## Credits
