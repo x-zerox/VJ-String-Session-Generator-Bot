@@ -133,10 +133,10 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                 await client.sign_in(phone_number, phone_code, password=None)
             else:
                 await client.sign_in(phone_number, code.phone_code_hash, phone_code)
-        except (PhoneCodeInvalid, PhoneCodeInvalidError, PhoneCodeInvalid1):
+        except (PhoneCodeInvalid, PhoneCodeInvalidError):
             await msg.reply("» ᴛʜᴇ ᴏᴛᴩ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs **ᴡʀᴏɴɢ.**\n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.", reply_markup=InlineKeyboardMarkup(gen_button))
             return
-        except (PhoneCodeExpired, PhoneCodeExpiredError, PhoneCodeExpired1):
+        except (PhoneCodeExpired, PhoneCodeExpiredError):
             await msg.reply("» ᴛʜᴇ ᴏᴛᴩ ʏᴏᴜ'ᴠᴇ sᴇɴᴛ ɪs **ᴇxᴩɪʀᴇᴅ.**\n\nᴩʟᴇᴀsᴇ sᴛᴀʀᴛ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ ᴀɢᴀɪɴ.", reply_markup=InlineKeyboardMarkup(gen_button))
             return
         except (SessionPasswordNeeded, SessionPasswordNeededError):
