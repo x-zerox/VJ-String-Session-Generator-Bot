@@ -22,7 +22,7 @@
 - `BOT_TOKEN` - Get your Bot Token from [@BotFather](https://t.me/BotFather)
 - `OWNER_ID` - Owner id of owner for broadcasting
 - `F_SUB` - Optional, Your Force Subscribe Channel Id & Make Bot Admin Here In This Channel 
-- `MONGO_DB_URI` - Get mongodb database uri from [MongoDB](https://mongodb.com)</b>
+- `MONGO_DB_URI` - Get mongodb database uri from [MongoDB](https://mongodb.com) Watch [Video Tutorial](https://youtu.be/DAHRmFdw99o)</b>
 
 ## Credits
 
