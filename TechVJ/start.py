@@ -9,7 +9,7 @@ async def start(bot: Client, msg: Message):
         await db.add_user(msg.from_user.id, msg.from_user.first_name)
     if F_SUB:
         try:
-            await bot.get_chat_member(F_SUB, msg.from_user.id)
+            await bot.get_chat_member(int(F_SUB), msg.from_user.id)
         except:
             try:
                 invite_link = await bot.create_chat_invite_link(int(F_SUB))
@@ -41,7 +41,7 @@ async def start(bot: Client, msg: Message):
 @Client.on_callback_query(filters.regex("chk"))
 async def chk(bot : Client, cb : CallbackQuery):
     try:
-        await bot.get_chat_member(F_SUB, cb.from_user.id)
+        await bot.get_chat_member(int(F_SUB), cb.from_user.id)
     except:
         await cb.answer("🙅‍♂️ You are not joined my channel first join channel then check again. 🙅‍♂️", show_alert=True)
         return 
