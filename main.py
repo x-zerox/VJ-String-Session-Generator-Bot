@@ -1,5 +1,5 @@
 from flask import Flask
-from config import API_ID, API_HASH, BOT_TOKEN
+from config import API_ID, API_HASH, BOT_TOKEN, PORT
 from pyrogram import Client, idle
 
 app = Flask(__name__)
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     print(f"@{uname} Started Successfully. Made By @VJ_Botz 🤗")
     
     # Run the Flask app
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+    app.run(host='0.0.0.0', port=PORT)
 
     # Use idle to keep the bot running
     idle()
