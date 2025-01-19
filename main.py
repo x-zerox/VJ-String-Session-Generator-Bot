@@ -10,7 +10,6 @@ bot = Client(
     plugins=dict(root="TechVJ"),
 )
 
-if __name__ == "__main__":
-    bot.start()
-    uname = bot.get_me().username
-    print(f"@{uname} Started Successfully. Made By @VJ_Botz 🤗")
+bot.start()
+uname = bot.get_me().username
+print(f"@{uname} Started Successfully. Made By @VJ_Botz 🤗")
