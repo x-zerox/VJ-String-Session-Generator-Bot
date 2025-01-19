@@ -1,7 +1,11 @@
+from flask import Flask
 from config import API_ID, API_HASH, BOT_TOKEN
 from pyrogram import Client, idle
 
-app = Client(
+app = Flask(__name__)
+
+# Initialize the Pyrogram Client
+bot = Client(
     "Anonymous",
     api_id=API_ID,
     api_hash=API_HASH,
@@ -10,10 +14,24 @@ app = Client(
     plugins=dict(root="TechVJ"),
 )
 
+@app.route('/')
+def health_check():
+    return "Bot is running!", 200
+
 if __name__ == "__main__":
-    app.start()
-    uname = app.get_me().username
+    # Start the bot
+    bot.start()
+    
+    # Print the bot's username
+    uname = bot.get_me().username
     print(f"@{uname} Started Successfully. Made By @VJ_Botz 🤗")
+    
+    # Run the Flask app
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+
+    # Use idle to keep the bot running
     idle()
-    app.stop()
-    print("Bot Stopped Bye !")
+    
+    # Stop the bot when done
+    bot.stop()
+    print("Bot Stopped Bye!")
