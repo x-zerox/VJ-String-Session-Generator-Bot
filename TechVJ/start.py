@@ -43,12 +43,12 @@ async def chk(bot : Client, cb : CallbackQuery):
     try:
         await bot.get_chat_member(int(F_SUB), cb.from_user.id)
     except:
-        await cb.answer("🙅‍♂️ You are not joined my channel first join channel then check again. 🙅‍♂️", show_alert=True)
+        await cb.answer("🙅‍♂️ You are not joined my channel first join channel then check again baby. 🙅‍♂️", show_alert=True)
         return 
     me = (await bot.get_me()).mention
     await bot.send_message(
         chat_id=cb.from_user.id,
-        text=f"""<b>𝐇𝐞𝐲 {cb.from_user.mention}🍷,\n\nɪ ᴀᴍ {me},\nᴛʀᴜsᴛᴇᴅ 𝗦𝗧𝗥𝗜𝗡𝗚 𝗚𝗥𝗡𝗘𝗥𝗔𝗧𝗢𝗥 ʙᴏᴛ.ғᴜʟʟʏ sᴀғᴇ & sᴇᴄᴜʀᴇ.\nɴᴏ ᴀɴʏ ᴇʀʀᴏʀ\n\nMade With By : [VJ Botz](https://t.me/VJ_Botz) !</b>""",
+        text=f"""<b>𝐇𝐞𝐲 {cb.from_user.mention}🍷,\n\nɪ ᴀᴍ {me},\nᴛʀᴜsᴛᴇᴅ 𝗦𝗧𝗥𝗜𝗡𝗚 𝗚𝗥𝗡𝗘𝗥𝗔𝗧𝗢𝗥 ʙᴏᴛ.ғᴜʟʟʏ sᴀғᴇ & sᴇᴄᴜʀᴇ.\nɴᴏ ᴀɴʏ ᴇʀʀᴏʀ\n\nMade With By : [ᴀᴊᴇᴇᴛ ʙᴏᴛꜱ](https://t.me/ajeet_Bots) !</b>""",
         reply_markup=InlineKeyboardMarkup(
             [[
                 InlineKeyboardButton(text="⚡ Generate String Session ⚡", callback_data="generate")
